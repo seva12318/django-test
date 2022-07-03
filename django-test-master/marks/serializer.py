@@ -39,8 +39,8 @@ class JournalSerializer(serializers.ModelSerializer):
         fields = ['students', 'lessons', 'mark'] 
 
 class ChoiceSerializer(serializers.ModelSerializer):
-    #sub_first = serializers.CharField(source="subjects.name", read_only=True)
-    #sub_second = serializers.CharField(source="subjects.name", read_only=True) 
+    sub_first = serializers.CharField(source="sub_first.name", read_only=True)
+    sub_second = serializers.CharField(source="sub_second.name", read_only=True) 
     students = serializers.CharField(source="students.__str__", read_only=True)
     class Meta:
         model = Choice
